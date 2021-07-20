@@ -42,7 +42,7 @@ namespace Detyra
             }, state);
         }
 
-        private void Receive()
+        public void Receive()
         {
             socket.BeginReceiveFrom(state.buffer, 0, bufferSize, SocketFlags.None, ref epFrom, recv = (ar) =>
             {
@@ -51,6 +51,17 @@ namespace Detyra
                 socket.BeginReceiveFrom(so.buffer, 0, bufferSize, SocketFlags.None, ref epFrom, recv, so);
                 Console.WriteLine("RECV: {0}: {1}, {2}", epFrom.ToString(), bytes, Encoding.ASCII.GetString(so.buffer, 0, bytes));
             }, state);
+        }
+        public String ReceiveText() {
+            StringBuilder sb = new StringBuilder();
+            socket.BeginReceiveFrom(state.buffer, 0, bufferSize, SocketFlags.None, ref epFrom, recv = (ar) =>
+            {
+            State so = (State)ar.AsyncState;
+            int bytes = socket.EndReceiveFrom(ar, ref epFrom);
+            socket.BeginReceiveFrom(so.buffer, 0, bufferSize, SocketFlags.None, ref epFrom, recv, so);
+            sb.Append(Encoding.ASCII.GetString(so.buffer, 0, bytes));
+            }, state);
+            return sb.ToString();
         }
     }
 }

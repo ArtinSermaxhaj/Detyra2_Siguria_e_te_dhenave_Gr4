@@ -1,4 +1,4 @@
-﻿using Internal;
+﻿
 using System;
 
 namespace Detyra
@@ -7,7 +7,12 @@ namespace Detyra
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Qfar Kapiteni osht ky.");
+            Server s = new Server();
+            s.ShtoCelesat();
+            Client c1 = new Client();
+            c1.ClientSend();
+          
+            
         }
     }
 }
