@@ -1,0 +1,11 @@
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\bin\Debug\Detyra2.exe.config
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\bin\Debug\Detyra2.exe
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\bin\Debug\Detyra2.pdb
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra2.csprojAssemblyReference.cache
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra2.Form1.resources
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra2.Properties.Resources.resources
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra2.csproj.GenerateResource.cache
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra2.csproj.CoreCompileInputs.cache
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra2.exe
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra2.pdb
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra2.Form2.resources
