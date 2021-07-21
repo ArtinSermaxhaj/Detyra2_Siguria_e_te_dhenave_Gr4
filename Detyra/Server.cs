@@ -21,38 +21,30 @@ namespace Detyra
         public void ServerSend(string message){
             server.Send(message);
         }
-        //public void ServerRecv() {
-          //  server.Receive();
-        //}
         public void ShtoCelesat() {
             string parametratXml = objRsa.ToXmlString(true);
             StreamWriter sw = new StreamWriter("celesat.xml");
             sw.Write(parametratXml);
             sw.Close();
         }
-        public string Dekripto() {
-            string kerkesa = server.ReceiveText();
+        public void Dekripto() {
+            string kerkesa = server.Receive();
             string[] vargu = kerkesa.Split('*');
             Console.WriteLine("IV = " + (vargu[0]) + ", gjatesia e vargut " + vargu.Length);
             byte[] initV = Convert.FromBase64String(vargu[0]);
-            objDes.Key = initV;
+            objDes.IV = initV;
             byte[] encryptedKey = Convert.FromBase64String(vargu[1]);
             c1.merrCelesat();
             byte[] desKey = objRsa.Decrypt(encryptedKey, true);
+            Console.WriteLine("Key after decryption : " + BitConverter.ToString(desKey));
             objDes.Key = desKey;
             objDes.Mode = CipherMode.CBC;
             objDes.Padding = PaddingMode.PKCS7;
             byte[] encryptedMessage = Convert.FromBase64String(vargu[2]);
-            MemoryStream ms = new MemoryStream(encryptedMessage);
-            byte[] decryptedMessage = new byte[ms.Length];
-            CryptoStream cs = new CryptoStream(ms, objDes.CreateDecryptor(), CryptoStreamMode.Read);
-            cs.Read(decryptedMessage, 0, decryptedMessage.Length);
-            string mesazhi = BitConverter.ToString(decryptedMessage);
-            Console.WriteLine(mesazhi);
-            return mesazhi;
+            //MemoryStream ms = new MemoryStream(encryptedMessage);
+            byte[] decryptedMessage;
+            decryptedMessage = objDes.CreateDecryptor().TransformFinalBlock(encryptedMessage, 0, encryptedMessage.Length);
+            Console.WriteLine("mesazhi i dekriptuar " + Encoding.UTF8.GetString(decryptedMessage));
         }
-
-
-
     }
 }

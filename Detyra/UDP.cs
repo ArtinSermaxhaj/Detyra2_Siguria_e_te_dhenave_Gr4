@@ -5,6 +5,11 @@ using System.Text;
 
 namespace Detyra
 {
+    class Global
+    {
+        public static string variabla;
+
+    }
     public class UDP
     {
         private Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
@@ -41,27 +46,17 @@ namespace Detyra
                 Console.WriteLine("SEND: {0}, {1}", bytes, text);
             }, state);
         }
-
-        public void Receive()
-        {
+        string rs;
+        public string Receive()
+        {  
             socket.BeginReceiveFrom(state.buffer, 0, bufferSize, SocketFlags.None, ref epFrom, recv = (ar) =>
             {
                 State so = (State)ar.AsyncState;
                 int bytes = socket.EndReceiveFrom(ar, ref epFrom);
                 socket.BeginReceiveFrom(so.buffer, 0, bufferSize, SocketFlags.None, ref epFrom, recv, so);
-                Console.WriteLine("RECV: {0}: {1}, {2}", epFrom.ToString(), bytes, Encoding.ASCII.GetString(so.buffer, 0, bytes));
+                rs += Encoding.ASCII.GetString(so.buffer, 0, bytes);
             }, state);
-        }
-        public String ReceiveText() {
-            StringBuilder sb = new StringBuilder();
-            socket.BeginReceiveFrom(state.buffer, 0, bufferSize, SocketFlags.None, ref epFrom, recv = (ar) =>
-            {
-            State so = (State)ar.AsyncState;
-            int bytes = socket.EndReceiveFrom(ar, ref epFrom);
-            socket.BeginReceiveFrom(so.buffer, 0, bufferSize, SocketFlags.None, ref epFrom, recv, so);
-            sb.Append(Encoding.ASCII.GetString(so.buffer, 0, bytes));
-            }, state);
-            return sb.ToString();
+            return rs;
         }
     }
 }

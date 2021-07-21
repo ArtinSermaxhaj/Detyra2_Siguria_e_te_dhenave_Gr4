@@ -11,7 +11,7 @@ namespace Detyra
             s.ShtoCelesat();
             Client c1 = new Client();
             c1.ClientSend();
-          
+            s.Dekripto();
             
         }
     }

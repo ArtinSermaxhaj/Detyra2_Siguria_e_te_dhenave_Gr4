@@ -32,6 +32,7 @@ namespace Detyra
             Console.WriteLine("Shenoni mesazhin per enkriptim");
             String plainText = Console.ReadLine();
             byte[] ByteplainText = Encoding.UTF8.GetBytes(plainText);
+            Console.WriteLine("Plain text : " + BitConverter.ToString(ByteplainText));
             objDes.GenerateIV();
             objDes.GenerateKey();
             InitialVector = objDes.IV;
@@ -41,6 +42,7 @@ namespace Detyra
             byte[] mesazhiEnkriptuar = objDes.CreateEncryptor().TransformFinalBlock(ByteplainText, 0, ByteplainText.Length);
             merrCelesat();
             byte[] encryptedKey = objRsa.Encrypt(sharedKey, true);
+            Console.WriteLine("Celesi : " + BitConverter.ToString(sharedKey));
             StringBuilder sb = new StringBuilder();
             sb.Append(Convert.ToBase64String(InitialVector) + "*");
             sb.Append(Convert.ToBase64String(encryptedKey) + "*");
