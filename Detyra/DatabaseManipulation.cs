@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Globalization;
 using System;
 using System.Diagnostics;
@@ -29,7 +30,7 @@ namespace Detyra
         public void addFatura(Fatura fatura){
             var jsonObj = readAndParseDatabase();
             JArray usersArray = (JArray) jsonObj["users"];
-            JArray billsArray = getBills(usersArray,"specialitet");
+            JArray billsArray = getBills(usersArray,SessionManager.user.username);
             JObject billObject = (JObject) JToken.FromObject(fatura);
             billsArray.Add(billObject);
             jsonObj["users"] = usersArray;
@@ -60,6 +61,23 @@ namespace Detyra
                 bills = (JArray) user["faturat"];
             }
             return bills;
+        }
+        public User getUserBills(){
+            var jsonObj = readAndParseDatabase();
+            JArray usersArray = (JArray) jsonObj["users"];
+            try{
+            foreach(var user in usersArray){
+                string tempUsername = user["username"].ToString();
+                if(tempUsername.Equals("specialitet")){
+                    var userObj = user.ToObject<User>();
+                    return userObj;
+                }
+            }
+            }
+            catch(Exception ex){
+            Console.WriteLine("Error");
+            }
+            return null;
         }
     }
 }

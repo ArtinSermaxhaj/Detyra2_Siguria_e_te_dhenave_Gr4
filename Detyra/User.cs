@@ -15,6 +15,10 @@ namespace Detyra
         public string salt {get;set;}
         public List<Fatura> faturat{get;set;}
         [JsonConstructor]
+        public User(){
+
+        }
+        [JsonConstructor]
         public User(string firstName,string lastName,string username, string password, string salt){
             this.firstName = firstName;
             this.lastName = lastName;
