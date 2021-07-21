@@ -1,17 +1,19 @@
 ﻿
 using System;
-
 namespace Detyra
 {
     class Program
     {
         static void Main(string[] args)
         {
-            DatabaseManipulation db = new DatabaseManipulation();
-            User user = db.getUserBills();
-            foreach(var fatura in user.faturat){
-                Console.WriteLine(fatura.llojiFatures + "  " + fatura.viti + " " + fatura.vleraEuro);
-            }
+            Server s = new Server();
+            s.ShtoCelesat();
+            Client c1 = new Client();
+            c1.ClientSend();
+            s.Dekripto();
+            s.ServerSend("Pershendetje");
+            c1.DekriptoPergjigjen();
+          
         }
     }
 }

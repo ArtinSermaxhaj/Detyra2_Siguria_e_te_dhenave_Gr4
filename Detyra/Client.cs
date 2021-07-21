@@ -49,5 +49,18 @@ namespace Detyra
             sb.Append(Convert.ToBase64String(mesazhiEnkriptuar));
             return sb.ToString();
         }
+        public void DekriptoPergjigjen() {
+            DESCryptoServiceProvider desKlient = new DESCryptoServiceProvider();
+            String response = client.Receive();
+            string[] arr = response.Split('*');
+            byte[] initialV = Convert.FromBase64String(arr[0]);
+            desKlient.IV = initialV;
+            desKlient.Key = objDes.Key;
+            byte[] encryptedResponse = Convert.FromBase64String(arr[1]);
+            byte[] decryptedResponse;
+            decryptedResponse = desKlient.CreateDecryptor().TransformFinalBlock(encryptedResponse, 0, encryptedResponse.Length);
+            String pergjigjaDekriptuar = Encoding.UTF8.GetString(decryptedResponse);
+            Console.WriteLine("Pergjgja Dekriptuar : " + pergjigjaDekriptuar);
+        }
     }
 }

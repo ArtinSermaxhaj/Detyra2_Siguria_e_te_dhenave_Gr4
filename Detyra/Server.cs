@@ -19,7 +19,7 @@ namespace Detyra
             server.Server("127.0.0.1", 27000);
         }
         public void ServerSend(string message){
-            server.Send(message);
+            server.ServerSend(EnkriptoPergjigjien(message));
         }
         public void ShtoCelesat() {
             string parametratXml = objRsa.ToXmlString(true);
@@ -46,5 +46,17 @@ namespace Detyra
             decryptedMessage = objDes.CreateDecryptor().TransformFinalBlock(encryptedMessage, 0, encryptedMessage.Length);
             Console.WriteLine("mesazhi i dekriptuar " + Encoding.UTF8.GetString(decryptedMessage));
         }
+        public string EnkriptoPergjigjien(string response) {
+            DESCryptoServiceProvider des = new DESCryptoServiceProvider();
+            byte[] byteResponse = Encoding.UTF8.GetBytes(response);
+            des.GenerateIV();
+            des.Key = objDes.Key;
+            byte[] mesazhiEnkriptuar = des.CreateEncryptor().TransformFinalBlock(byteResponse, 0, byteResponse.Length);
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Convert.ToBase64String(des.IV) + "*");
+            sb.Append(Convert.ToBase64String(mesazhiEnkriptuar) + "*");
+            return sb.ToString();
+        }
+
     }
 }

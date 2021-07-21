@@ -58,5 +58,10 @@ namespace Detyra
             }, state);
             return rs;
         }
+        public void ServerSend(string text) {
+            byte[] data = Encoding.ASCII.GetBytes(text);
+            socket.SendTo(data, data.Length, SocketFlags.None, epFrom);
+  
+        }
     }
 }
