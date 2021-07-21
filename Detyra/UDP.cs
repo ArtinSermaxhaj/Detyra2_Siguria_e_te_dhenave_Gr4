@@ -48,7 +48,7 @@ namespace Detyra
         }
         string rs;
         public string Receive()
-        {  
+        {
             socket.BeginReceiveFrom(state.buffer, 0, bufferSize, SocketFlags.None, ref epFrom, recv = (ar) =>
             {
                 State so = (State)ar.AsyncState;

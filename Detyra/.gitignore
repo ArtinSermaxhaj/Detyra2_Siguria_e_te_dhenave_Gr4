@@ -20,6 +20,7 @@ appsettings.json
 Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+db.json
 
 # ==============================
 # MacOS Things
