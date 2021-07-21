@@ -30,9 +30,22 @@ namespace Detyra
         public void addFatura(Fatura fatura){
             var jsonObj = readAndParseDatabase();
             JArray usersArray = (JArray) jsonObj["users"];
-            JArray billsArray = getBills(usersArray,SessionManager.user.username);
+            JArray billsArray = new JArray();
             JObject billObject = (JObject) JToken.FromObject(fatura);
-            billsArray.Add(billObject);
+            if(checkIfUserHasBills(usersArray)){
+                billsArray = getBills(usersArray);
+                billsArray.Add(billObject);
+            }
+            else{
+                billsArray.Add(billObject);
+                foreach(var user in usersArray){
+                string tempUsername = user["username"].ToString();
+                if(tempUsername.Equals("i moqem")){
+                    user["faturat"] = billsArray;
+                }
+                }
+            }
+
             jsonObj["users"] = usersArray;
             addToDatabase(jsonObj);
         }
@@ -53,11 +66,20 @@ namespace Detyra
             JObject jsonObj = JObject.Parse(json);
             return jsonObj;
         }
-        public JArray getBills(JArray users, string username){
+        public bool checkIfUserHasBills(JArray users){
+            foreach(var user in users){
+                string tempUsername = user["username"].ToString();
+                if(tempUsername.Equals("i moqem"))
+                if(user["faturat"].HasValues)
+                return true;
+            }
+            return false;
+        }
+        public JArray getBills(JArray users){
             JArray bills = null;
             foreach(var user in users){
                 string tempUsername = user["username"].ToString();
-                if(tempUsername.Equals(username))
+                if(tempUsername.Equals("i moqem"))
                 bills = (JArray) user["faturat"];
             }
             return bills;
