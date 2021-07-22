@@ -38,7 +38,7 @@ namespace Detyra
             string lastname = lastNameField.Text;
             string username = usernameField.Text;
             string moshatxt = moshaField.Text;
-            int mosha;
+            int mosha = 0;
             try
             {
                     mosha = Int32.Parse(moshatxt);

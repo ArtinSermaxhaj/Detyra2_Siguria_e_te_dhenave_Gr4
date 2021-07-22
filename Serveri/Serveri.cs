@@ -12,7 +12,6 @@ namespace Serveri
 {
     public class Server
     {
-        private UDP server;
         private UdpClient udpClient;
         static RSACryptoServiceProvider objRsa = new RSACryptoServiceProvider();
         static DESCryptoServiceProvider objDes = new DESCryptoServiceProvider();
@@ -21,10 +20,6 @@ namespace Serveri
         {
             udpClient = new UdpClient(8000);
             Task.Run(serverThread);
-        }
-        public void ServerSend(string message)
-        {
-            server.ServerSend(EnkriptoPergjigjjen(message));
         }
         public void ShtoCelesat()
         {
@@ -98,10 +93,10 @@ namespace Serveri
             switch(arr[0]) {
                 case "Login":
                     if(arr.Length == 3) {
-                        string usersname = arr[1];
+                        string username = arr[1];
                         string password = arr[2];
                         if (DatabaseManipulation.checkIfUserAlreadyExists(username)) {
-                            User user = DatabaseManipulation.getUserBills();
+                            User user = DatabaseManipulation.getUserBills(username);
                             SessionManager.user = user;
                             string hashedPassword = GenerateHash(password, user.salt);
                             if (hashedPassword.Equals(user.password)) {
@@ -110,7 +105,15 @@ namespace Serveri
                                 return "Error";
                             }
                         }
+                        else
+                        {
+                            return "Error";
+                        }
                    
+                    }
+                    else
+                    {
+                        return "Error";
                     }
                          break;
                 case "Regjistro":
@@ -127,11 +130,17 @@ namespace Serveri
                             SessionManager.user = user;
                             DatabaseManipulation.addUser(user);
                             return "OK";
-                        }else {
+                        }
+                        else {
                             return "Error";
                         }
                     }
-
+                    else
+                    {
+                        return "Error";
+                    }
+                    break;
+                default: return "Error";
             }
         } 
         public string GenerateHash(string input, string salt)
