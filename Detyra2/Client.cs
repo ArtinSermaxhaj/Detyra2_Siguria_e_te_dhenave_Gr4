@@ -6,6 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
+using System;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+
 namespace Detyra
 {
     public class Client
@@ -14,27 +19,30 @@ namespace Detyra
         static DESCryptoServiceProvider objDes = new DESCryptoServiceProvider();
         byte[] InitialVector;
         byte[] sharedKey;
-        private UDP client;
+        public UdpClient udpClient;
         public Client()
         {
-            this.client = new UDP();
-            client.Client("127.0.0.1", 27000);
+            udpClient = new UdpClient();
+            udpClient.Connect("localhost", 8000);
         }
-        public void ClientSend()
+        public void requestToServer () {
+        }
+        public void ClientSend(string plainText)
         {
-            string message = Enkripto();
-            client.Send(message);
+            string message = Enkripto(plainText);
+            udpClient.Send(Encoding.UTF8.GetBytes(message), Encoding.UTF8.GetBytes(message).Length);
         }
         public void merrCelesat()
         {
-            StreamReader sr = new StreamReader("celesat.xml");
+            var myDocs = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var keyPath = Path.Combine(myDocs, "keys", "celesat.xml");
+            StreamReader sr = new StreamReader(keyPath);
             string xmlParameters = sr.ReadToEnd();
             objRsa.FromXmlString(xmlParameters);
         }
-        public string Enkripto()
+        public string Enkripto(string plaintext)
         {
-            Console.WriteLine("Shenoni mesazhin per enkriptim");
-            String plainText = Console.ReadLine();
+            String plainText = plaintext;
             byte[] ByteplainText = Encoding.UTF8.GetBytes(plainText);
             Console.WriteLine("Plain text : " + BitConverter.ToString(ByteplainText));
             objDes.GenerateIV();
@@ -53,10 +61,11 @@ namespace Detyra
             sb.Append(Convert.ToBase64String(mesazhiEnkriptuar));
             return sb.ToString();
         }
-        public void DekriptoPergjigjen()
+        public string DekriptoPergjigjen()
         {
+            IPEndPoint remoteIPEndPoint = new IPEndPoint(IPAddress.Any, 0);
             DESCryptoServiceProvider desKlient = new DESCryptoServiceProvider();
-            String response = client.Receive();
+            String response = Encoding.UTF8.GetString(udpClient.Receive(ref remoteIPEndPoint));
             string[] arr = response.Split('*');
             byte[] initialV = Convert.FromBase64String(arr[0]);
             desKlient.IV = initialV;
@@ -66,6 +75,8 @@ namespace Detyra
             decryptedResponse = desKlient.CreateDecryptor().TransformFinalBlock(encryptedResponse, 0, encryptedResponse.Length);
             String pergjigjaDekriptuar = Encoding.UTF8.GetString(decryptedResponse);
             Console.WriteLine("Pergjgja Dekriptuar : " + pergjigjaDekriptuar);
+            return pergjigjaDekriptuar;
         }
+      
     }
 }

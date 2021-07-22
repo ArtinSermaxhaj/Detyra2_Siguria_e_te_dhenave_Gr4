@@ -1,0 +1,26 @@
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\bin\Debug\Serveri.exe.config
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\bin\Debug\Serveri.exe
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\bin\Debug\Serveri.pdb
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\obj\Debug\Serveri.csprojAssemblyReference.cache
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\obj\Debug\Serveri.Form1.resources
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\obj\Debug\Serveri.Properties.Resources.resources
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\obj\Debug\Serveri.csproj.GenerateResource.cache
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\obj\Debug\Serveri.csproj.CoreCompileInputs.cache
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\obj\Debug\Serveri.exe
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\obj\Debug\Serveri.pdb
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\bin\Debug\Newtonsoft.Json.dll
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\bin\Debug\Newtonsoft.Json.xml
+C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\obj\Debug\Serveri.csproj.CopyComplete
+C:\Users\Artin\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\obj\Debug\Serveri.csproj.AssemblyReference.cache
+C:\Users\Artin\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\obj\Debug\Serveri.Form1.resources
+C:\Users\Artin\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\obj\Debug\Serveri.Properties.Resources.resources
+C:\Users\Artin\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\obj\Debug\Serveri.csproj.GenerateResource.cache
+C:\Users\Artin\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\obj\Debug\Serveri.csproj.CoreCompileInputs.cache
+C:\Users\Artin\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\obj\Debug\Serveri.exe
+C:\Users\Artin\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\obj\Debug\Serveri.pdb
+C:\Users\Artin\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\bin\Debug\Serveri.exe.config
+C:\Users\Artin\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\bin\Debug\Serveri.exe
+C:\Users\Artin\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\bin\Debug\Serveri.pdb
+C:\Users\Artin\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Artin\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Artin\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Serveri\obj\Debug\Serveri.csproj.CopyComplete

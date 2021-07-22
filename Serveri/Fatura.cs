@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Detyra
+namespace Serveri
 {
     public class Fatura
     {

@@ -4,7 +4,7 @@ using System;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace Detyra
+namespace Serveri
 {
     public class User
     {

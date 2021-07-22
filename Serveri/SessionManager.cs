@@ -1,4 +1,4 @@
-﻿namespace Detyra
+﻿namespace Serveri
 {
     public class SessionManager
     {
