@@ -11,6 +11,7 @@ namespace Serveri
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string username { get; set; }
+        public string mosha {get;set;}
         public string password { get; set; }
         public string salt { get; set; }
         public List<Fatura> faturat { get; set; }
@@ -20,7 +21,7 @@ namespace Serveri
 
         }
         
-        public User(string firstName, string lastName, string username, string password, string salt)
+        public User(string firstName, string lastName, string username, string mosha, string password, string salt)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -28,8 +29,9 @@ namespace Serveri
             this.password = password;
             this.salt = salt;
             this.faturat = null;
+            this.mosha = mosha;
         }
-        public User(string firstName, string lastName, string username, string password, string salt, List<Fatura> faturat)
+        public User(string firstName, string lastName, string username,string mohsa, string password, string salt, List<Fatura> faturat)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -37,6 +39,7 @@ namespace Serveri
             this.password = password;
             this.salt = salt;
             this.faturat = faturat;
+            this.mosha = mosha;
         }
         
     }

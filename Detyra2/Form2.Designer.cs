@@ -42,12 +42,14 @@ namespace Detyra
             this.label6 = new System.Windows.Forms.Label();
             this.firstNameField = new System.Windows.Forms.TextBox();
             this.lastNameField = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.moshaField = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(111, 27);
+            this.label1.Location = new System.Drawing.Point(111, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 23);
             this.label1.TabIndex = 0;
@@ -75,9 +77,9 @@ namespace Detyra
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(121, 229);
+            this.label3.Location = new System.Drawing.Point(121, 319);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 33);
+            this.label3.Size = new System.Drawing.Size(94, 21);
             this.label3.TabIndex = 3;
             this.label3.Text = "Password";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -85,7 +87,7 @@ namespace Detyra
             // passwordField
             // 
             this.passwordField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordField.Location = new System.Drawing.Point(99, 256);
+            this.passwordField.Location = new System.Drawing.Point(99, 352);
             this.passwordField.Name = "passwordField";
             this.passwordField.PasswordChar = '*';
             this.passwordField.Size = new System.Drawing.Size(157, 26);
@@ -94,9 +96,9 @@ namespace Detyra
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(111, 294);
+            this.label4.Location = new System.Drawing.Point(111, 391);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(145, 23);
+            this.label4.Size = new System.Drawing.Size(145, 21);
             this.label4.TabIndex = 5;
             this.label4.Text = "Confirm Password";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -105,7 +107,7 @@ namespace Detyra
             // confirmPwField
             // 
             this.confirmPwField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmPwField.Location = new System.Drawing.Point(99, 320);
+            this.confirmPwField.Location = new System.Drawing.Point(99, 425);
             this.confirmPwField.Name = "confirmPwField";
             this.confirmPwField.PasswordChar = '*';
             this.confirmPwField.Size = new System.Drawing.Size(157, 26);
@@ -114,9 +116,9 @@ namespace Detyra
             // signupBtn
             // 
             this.signupBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signupBtn.Location = new System.Drawing.Point(125, 352);
+            this.signupBtn.Location = new System.Drawing.Point(125, 457);
             this.signupBtn.Name = "signupBtn";
-            this.signupBtn.Size = new System.Drawing.Size(103, 32);
+            this.signupBtn.Size = new System.Drawing.Size(90, 30);
             this.signupBtn.TabIndex = 7;
             this.signupBtn.Text = "Sign Up";
             this.signupBtn.UseVisualStyleBackColor = true;
@@ -126,7 +128,7 @@ namespace Detyra
             // 
             this.loginLabel.AutoSize = true;
             this.loginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginLabel.Location = new System.Drawing.Point(87, 396);
+            this.loginLabel.Location = new System.Drawing.Point(84, 500);
             this.loginLabel.Name = "loginLabel";
             this.loginLabel.Size = new System.Drawing.Size(191, 16);
             this.loginLabel.TabIndex = 8;
@@ -137,7 +139,7 @@ namespace Detyra
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(121, 62);
+            this.label5.Location = new System.Drawing.Point(121, 41);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 23);
             this.label5.TabIndex = 9;
@@ -148,7 +150,7 @@ namespace Detyra
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(121, 119);
+            this.label6.Location = new System.Drawing.Point(121, 105);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 23);
             this.label6.TabIndex = 10;
@@ -158,7 +160,7 @@ namespace Detyra
             // firstNameField
             // 
             this.firstNameField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameField.Location = new System.Drawing.Point(99, 90);
+            this.firstNameField.Location = new System.Drawing.Point(99, 67);
             this.firstNameField.Name = "firstNameField";
             this.firstNameField.Size = new System.Drawing.Size(157, 26);
             this.firstNameField.TabIndex = 11;
@@ -166,16 +168,36 @@ namespace Detyra
             // lastNameField
             // 
             this.lastNameField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameField.Location = new System.Drawing.Point(99, 145);
+            this.lastNameField.Location = new System.Drawing.Point(99, 131);
             this.lastNameField.Name = "lastNameField";
             this.lastNameField.Size = new System.Drawing.Size(157, 26);
             this.lastNameField.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(126, 249);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 23);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Mosha";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // moshaField
+            // 
+            this.moshaField.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moshaField.Location = new System.Drawing.Point(99, 275);
+            this.moshaField.Name = "moshaField";
+            this.moshaField.Size = new System.Drawing.Size(157, 26);
+            this.moshaField.TabIndex = 14;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(368, 450);
+            this.ClientSize = new System.Drawing.Size(353, 542);
+            this.Controls.Add(this.moshaField);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.lastNameField);
             this.Controls.Add(this.firstNameField);
             this.Controls.Add(this.label6);
@@ -191,6 +213,7 @@ namespace Detyra
             this.Controls.Add(this.label1);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +234,7 @@ namespace Detyra
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox firstNameField;
         private System.Windows.Forms.TextBox lastNameField;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox moshaField;
     }
 }

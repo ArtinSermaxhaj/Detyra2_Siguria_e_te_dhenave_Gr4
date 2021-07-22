@@ -87,10 +87,66 @@ namespace Serveri
                 string mesazhi = Dekripto(base64);
                 if(mesazhi != null)
                 {
-                    String msg = EnkriptoPergjigjjen("OK");
+                    String msg = EnkriptoPergjigjjen(checkFunction(mesazhi));
                     udpClient.Send(Encoding.UTF8.GetBytes(msg), Encoding.UTF8.GetBytes(msg).Length,RemoteIpEndPoint);
                 }
+
             }
+        }
+        public String checkFunction(string kerkesa) {
+            string [] arr = kerkesa.Split('?');
+            switch(arr[0]) {
+                case "Login":
+                    if(arr.Length == 3) {
+                        string usersname = arr[1];
+                        string password = arr[2];
+                        if (DatabaseManipulation.checkIfUserAlreadyExists(username)) {
+                            User user = DatabaseManipulation.getUserBills();
+                            SessionManager.user = user;
+                            string hashedPassword = GenerateHash(password, user.salt);
+                            if (hashedPassword.Equals(user.password)) {
+                                return "OK";
+                            }else {
+                                return "Error";
+                            }
+                        }
+                   
+                    }
+                         break;
+                case "Regjistro":
+                    if (arr.Length == 6) {
+                        string firstName = arr[1];
+                        string lastName = arr[2];
+                        string userName = arr[3];
+                        string mosha = arr[4];
+                        string password = arr[5];
+                        if (!DatabaseManipulation.checkIfUserAlreadyExists(userName)) {
+                            string salt = CreateSalt();
+                            string hashedPassword = GenerateHash(password, salt);
+                            User user = new User(firstName, lastName, userName, mosha, hashedPassword, salt);
+                            SessionManager.user = user;
+                            DatabaseManipulation.addUser(user);
+                            return "OK";
+                        }else {
+                            return "Error";
+                        }
+                    }
+
+            }
+        } 
+        public string GenerateHash(string input, string salt)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(input + salt);
+            SHA256Managed SHA256String = new SHA256Managed();
+            byte[] hash = SHA256String.ComputeHash(bytes);
+            return Convert.ToBase64String(hash);
+        }
+        public string CreateSalt()
+        {
+            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+            byte[] buff = new byte[16];
+            rng.GetBytes(buff);
+            return Convert.ToBase64String(buff);
         }
 
     }
