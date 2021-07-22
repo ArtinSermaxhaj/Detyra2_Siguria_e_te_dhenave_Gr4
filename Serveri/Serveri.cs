@@ -140,6 +140,18 @@ namespace Serveri
                         return "Error";
                     }
                     break;
+                case "fatura" :
+                    if (arr.Length == 5) {
+                                string lloji = arr[1];
+                                int viti = Int32.Parse(arr[2]);
+                                int muaji = Int32.Parse(arr[3]);
+                                double cmimi = Double.Parse(arr[4]);
+                                Fatura f = new Fatura(lloji, viti, muaji, cmimi);
+                                DatabaseManipulation.addFatura(f);
+                                return "OK";
+                    }else {
+                        return "Error";
+                    }
                 default: return "Error";
             }
         } 
