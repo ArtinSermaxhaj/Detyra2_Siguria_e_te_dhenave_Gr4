@@ -9,3 +9,17 @@ C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug
 C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra2.exe
 C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra2.pdb
 C:\Users\RS Computers\Desktop\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra2.Form2.resources
+C:\Users\Artin\Source\Repos\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra2.csproj.GenerateResource.cache
+C:\Users\Artin\Source\Repos\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra2.csproj.CoreCompileInputs.cache
+C:\Users\Artin\Source\Repos\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Artin\Source\Repos\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Artin\Source\Repos\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra2.csproj.CopyComplete
+C:\Users\Artin\Source\Repos\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\bin\Debug\Detyra.exe.config
+C:\Users\Artin\Source\Repos\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\bin\Debug\Detyra.exe
+C:\Users\Artin\Source\Repos\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\bin\Debug\Detyra.pdb
+C:\Users\Artin\Source\Repos\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra.Form1.resources
+C:\Users\Artin\Source\Repos\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra.Form2.resources
+C:\Users\Artin\Source\Repos\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra.Properties.Resources.resources
+C:\Users\Artin\Source\Repos\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra.exe
+C:\Users\Artin\Source\Repos\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra.pdb
+C:\Users\Artin\Source\Repos\Detyra2_Siguria_e_te_dhenave_Gr4\Detyra2\obj\Debug\Detyra2.csproj.AssemblyReference.cache

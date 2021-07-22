@@ -1,5 +1,5 @@
 ﻿
-namespace Detyra2
+namespace Detyra
 {
     partial class Form1
     {
@@ -95,6 +95,7 @@ namespace Detyra2
             this.loginBtn.TabIndex = 5;
             this.loginBtn.Text = "Log in";
             this.loginBtn.UseVisualStyleBackColor = true;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // signUpLabel
             // 

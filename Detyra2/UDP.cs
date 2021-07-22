@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -58,10 +58,11 @@ namespace Detyra
             }, state);
             return rs;
         }
-        public void ServerSend(string text) {
+        public void ServerSend(string text)
+        {
             byte[] data = Encoding.ASCII.GetBytes(text);
             socket.SendTo(data, data.Length, SocketFlags.None, epFrom);
-  
+
         }
     }
 }

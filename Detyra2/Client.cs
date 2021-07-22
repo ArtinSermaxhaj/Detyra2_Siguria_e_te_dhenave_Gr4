@@ -1,4 +1,4 @@
-using System.Net.Http;
+﻿using System.Net.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,20 +15,24 @@ namespace Detyra
         byte[] InitialVector;
         byte[] sharedKey;
         private UDP client;
-        public Client(){
+        public Client()
+        {
             this.client = new UDP();
             client.Client("127.0.0.1", 27000);
         }
-        public void ClientSend(){
+        public void ClientSend()
+        {
             string message = Enkripto();
             client.Send(message);
         }
-        public void merrCelesat() {
+        public void merrCelesat()
+        {
             StreamReader sr = new StreamReader("celesat.xml");
             string xmlParameters = sr.ReadToEnd();
             objRsa.FromXmlString(xmlParameters);
         }
-        public string Enkripto() {
+        public string Enkripto()
+        {
             Console.WriteLine("Shenoni mesazhin per enkriptim");
             String plainText = Console.ReadLine();
             byte[] ByteplainText = Encoding.UTF8.GetBytes(plainText);
@@ -49,7 +53,8 @@ namespace Detyra
             sb.Append(Convert.ToBase64String(mesazhiEnkriptuar));
             return sb.ToString();
         }
-        public void DekriptoPergjigjen() {
+        public void DekriptoPergjigjen()
+        {
             DESCryptoServiceProvider desKlient = new DESCryptoServiceProvider();
             String response = client.Receive();
             string[] arr = response.Split('*');
