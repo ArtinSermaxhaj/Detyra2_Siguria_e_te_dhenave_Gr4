@@ -49,7 +49,6 @@ namespace Detyra
             table.Columns.Add("Viti", typeof(int));
             table.Columns.Add("Muaji", typeof(int));
             table.Columns.Add("Cmimi", typeof(double));
-            table.Rows.Add("Test", 1, 12, 13);
             dataGridView1.DataSource = table;
             string pergjijga = c1.DekriptoPergjigjen();
             List<Fatura> userFaturat = merrFaturat(pergjijga);

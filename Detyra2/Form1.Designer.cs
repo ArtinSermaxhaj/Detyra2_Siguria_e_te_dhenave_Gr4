@@ -36,6 +36,7 @@ namespace Detyra
             this.passwordField = new System.Windows.Forms.TextBox();
             this.loginBtn = new System.Windows.Forms.Button();
             this.signUpLabel = new System.Windows.Forms.LinkLabel();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -89,9 +90,9 @@ namespace Detyra
             // loginBtn
             // 
             this.loginBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginBtn.Location = new System.Drawing.Point(126, 308);
+            this.loginBtn.Location = new System.Drawing.Point(29, 313);
             this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(120, 30);
+            this.loginBtn.Size = new System.Drawing.Size(120, 46);
             this.loginBtn.TabIndex = 5;
             this.loginBtn.Text = "Log in";
             this.loginBtn.UseVisualStyleBackColor = true;
@@ -101,7 +102,7 @@ namespace Detyra
             // 
             this.signUpLabel.AutoSize = true;
             this.signUpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signUpLabel.Location = new System.Drawing.Point(63, 362);
+            this.signUpLabel.Location = new System.Drawing.Point(71, 372);
             this.signUpLabel.Name = "signUpLabel";
             this.signUpLabel.Size = new System.Drawing.Size(258, 16);
             this.signUpLabel.TabIndex = 6;
@@ -109,11 +110,23 @@ namespace Detyra
             this.signUpLabel.Text = "Sign up here if you do not have an account";
             this.signUpLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(211, 313);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 46);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Verifiko nenshkrimin";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(369, 406);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.signUpLabel);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.passwordField);
@@ -139,6 +152,7 @@ namespace Detyra
         private System.Windows.Forms.TextBox passwordField;
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.LinkLabel signUpLabel;
+        private System.Windows.Forms.Button button1;
     }
 }
 

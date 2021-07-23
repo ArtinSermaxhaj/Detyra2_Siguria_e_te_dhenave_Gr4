@@ -103,7 +103,11 @@ namespace Serveri
                             SessionManager.user = user;
                             string hashedPassword = GenerateHash(password, user.salt);
                             if (hashedPassword.Equals(user.password)) {
-                                return "OK";
+                                
+                                string xml = merreXmlFileContent(user.username);
+                                string mesazhi = "OK?"+xml+"?"+user.username;
+                                return mesazhi;
+
                             }else {
                                 return "Error";
                             }
@@ -193,7 +197,6 @@ namespace Serveri
         }
         public void createUserSignature(User user)
         {
-            	RSACryptoServiceProvider Rsa = new RSACryptoServiceProvider();
                 XmlDocument objXml = new XmlDocument();
                 if(!(File.Exists(user.username+".xml")))
             {
@@ -222,14 +225,23 @@ namespace Serveri
                 referenca.AddTransform(xmlDsigEnvelopedSignatureTransform);
                 objSignedXml.AddReference(referenca);
                 KeyInfo ki = new KeyInfo();
-                ki.AddClause(new RSAKeyValue(Rsa));
+                ki.AddClause(new RSAKeyValue(objRsa));
                 objSignedXml.KeyInfo = ki;
-                objSignedXml.SigningKey = Rsa;
+                objSignedXml.SigningKey = objRsa;
                 objSignedXml.ComputeSignature();
                 XmlElement signatureNode = objSignedXml.GetXml();
                 rootNode.AppendChild(signatureNode);
                 objXml.Save(user.username + "1.xml");
+                Console.WriteLine(objXml.InnerXml);
+                Console.WriteLine(objXml.InnerXml);
+        }
+        public string merreXmlFileContent (string username) {
+            XmlDocument objXml = new XmlDocument();
+            objXml.Load(username + "1.xml");
+            return objXml.InnerXml;
         }
 
+        }
+        
     }
-}
+    
