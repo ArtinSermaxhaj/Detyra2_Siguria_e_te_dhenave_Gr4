@@ -38,19 +38,11 @@ namespace Detyra
             string lastname = lastNameField.Text;
             string username = usernameField.Text;
             string moshatxt = moshaField.Text;
-            int mosha = 0;
-            try
-            {
-                    mosha = Int32.Parse(moshatxt);
-            }
-            catch {
-                MessageBox.Show("Mosha nuk eshte numer");
-            }
             string password = passwordField.Text;
             string confirmpw = confirmPwField.Text;
-            if (password.Equals(confirmpw))
+            if (password.Equals(confirmpw) && checkInput(firstname, lastname, moshatxt))
             {
-                String mesazhi = "Regjistro?" + firstname + "?" + lastname + "?" + username + "?"+ mosha + "?" + password;
+                String mesazhi = "Regjistro?" + firstname + "?" + lastname + "?" + username + "?" + moshatxt + "?" + password;
                 c1.ClientSend(mesazhi);
                 string pergjigjja = c1.DekriptoPergjigjen();
                 if (pergjigjja.Equals("OK"))
@@ -61,17 +53,12 @@ namespace Detyra
                     loginForm.Dispose();
                     Show();
                 }
-                else
-                {
-                    MessageBox.Show("Te dhenat e formes jane te gabuara.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Passwordi dhe Passwordi konfirmues nuk jane te njejte.");
+            } else {
+                MessageBox.Show("Te dhenat e formes jane te gabuara");
                 firstNameField.Clear();
                 lastNameField.Clear();
                 usernameField.Clear();
+                moshaField.Clear();
                 passwordField.Clear();
                 confirmPwField.Clear();
             }
@@ -82,6 +69,30 @@ namespace Detyra
         {
 
         }
+        private bool checkInput(string firstname, string lastname, string mosha) {
+            bool valid = true;
+            foreach (char c in firstname.ToArray()) {
+                if (Char.IsDigit(c)) {
+                    valid = false;
+                    return valid;
+                }
+            }
+            foreach (char c in lastname.ToCharArray()) {
+                if (Char.IsDigit(c)) {
+                    valid = false;
+                    return valid;
+                }
+            }
+            try
+            {
+                int moshaValid = Int32.Parse(mosha);
+            }
+            catch (Exception ex) {
+                valid = false;
+                return valid;
+            }
+            return valid;
+        } 
 
 
     }

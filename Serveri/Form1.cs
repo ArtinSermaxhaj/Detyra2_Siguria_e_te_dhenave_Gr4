@@ -21,10 +21,7 @@ namespace Serveri
         {
             Server s1 = new Server();
             s1.ShtoCelesat();
-            if(Server.test != null)
-            {
-                MessageBox.Show(Server.test);
-            }
+            MessageBox.Show("Serveri u startua");
         }
 
     }

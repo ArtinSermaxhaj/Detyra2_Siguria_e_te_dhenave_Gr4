@@ -31,15 +31,16 @@ namespace Detyra
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.llojiField = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.vitiField = new System.Windows.Forms.TextBox();
-            this.muajiField = new System.Windows.Forms.TextBox();
             this.cmimiField = new System.Windows.Forms.TextBox();
             this.ruajBtn = new System.Windows.Forms.Button();
             this.AnuloBtn = new System.Windows.Forms.Button();
+            this.llojiField = new System.Windows.Forms.ComboBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.muajiField = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -61,13 +62,6 @@ namespace Detyra
             this.label2.Size = new System.Drawing.Size(34, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Lloji";
-            // 
-            // llojiField
-            // 
-            this.llojiField.Location = new System.Drawing.Point(122, 103);
-            this.llojiField.Name = "llojiField";
-            this.llojiField.Size = new System.Drawing.Size(142, 20);
-            this.llojiField.TabIndex = 2;
             // 
             // label3
             // 
@@ -106,13 +100,6 @@ namespace Detyra
             this.vitiField.Size = new System.Drawing.Size(142, 20);
             this.vitiField.TabIndex = 6;
             // 
-            // muajiField
-            // 
-            this.muajiField.Location = new System.Drawing.Point(122, 254);
-            this.muajiField.Name = "muajiField";
-            this.muajiField.Size = new System.Drawing.Size(142, 20);
-            this.muajiField.TabIndex = 7;
-            // 
             // cmimiField
             // 
             this.cmimiField.Location = new System.Drawing.Point(122, 325);
@@ -140,11 +127,33 @@ namespace Detyra
             this.AnuloBtn.UseVisualStyleBackColor = true;
             this.AnuloBtn.Click += new System.EventHandler(this.AnuloBtn_Click);
             // 
+            // llojiField
+            // 
+            this.llojiField.FormattingEnabled = true;
+            this.llojiField.Items.AddRange(new object[] {
+            "Uje",
+            "Rryme",
+            "Fakultet",
+            "Mbeturina",
+            "Pagesa komunale"});
+            this.llojiField.Location = new System.Drawing.Point(122, 114);
+            this.llojiField.Name = "llojiField";
+            this.llojiField.Size = new System.Drawing.Size(142, 21);
+            this.llojiField.TabIndex = 11;
+            // 
+            // muajiField
+            // 
+            this.muajiField.Location = new System.Drawing.Point(122, 254);
+            this.muajiField.Name = "muajiField";
+            this.muajiField.Size = new System.Drawing.Size(142, 20);
+            this.muajiField.TabIndex = 7;
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(402, 450);
+            this.Controls.Add(this.llojiField);
             this.Controls.Add(this.AnuloBtn);
             this.Controls.Add(this.ruajBtn);
             this.Controls.Add(this.cmimiField);
@@ -153,7 +162,6 @@ namespace Detyra
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.llojiField);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form4";
@@ -168,14 +176,15 @@ namespace Detyra
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox llojiField;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox vitiField;
-        private System.Windows.Forms.TextBox muajiField;
         private System.Windows.Forms.TextBox cmimiField;
         private System.Windows.Forms.Button ruajBtn;
         private System.Windows.Forms.Button AnuloBtn;
+        private System.Windows.Forms.ComboBox llojiField;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.TextBox muajiField;
     }
 }

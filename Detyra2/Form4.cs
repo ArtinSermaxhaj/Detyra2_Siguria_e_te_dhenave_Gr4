@@ -32,32 +32,51 @@ namespace Detyra
 
         private void ruajBtn_Click(object sender, EventArgs e)
         {
-            string lloji = llojiField.Text;
-            int viti = 0;
-            double cmimi = 0;
-            int muaji = 0;
+            string lloji = llojiField.SelectedItem.ToString();
+            string viti = vitiField.Text;
+            string cmimi = cmimiField.Text;
+            string muaji = muajiField.Text;
+            if (!checkInput(viti,muaji,cmimi))
+            {
+                MessageBox.Show("Te dhenat e formes nuk jane mbushur si duhet. Provoni perseri");
+                vitiField.Clear();
+                muajiField.Clear();
+                cmimiField.Clear();
+            }
+            else
+            {
+                String mesazhi = "fatura?" + lloji + "?" + viti + "?" + muaji + "?" + cmimi;
+                c1.ClientSend(mesazhi);
+                string pergjigja = c1.DekriptoPergjigjen();
+                if (pergjigja.Equals("OK"))
+                {
+                    Hide();
+                    Form3 billsForm = new Form3();
+                    billsForm.ShowDialog();
+                    billsForm.Dispose();
+                    Show();
+                }
+            }
+        }
+        private bool checkInput(string viti, string muaji, string cmimi) {
+            Boolean valid = true;
             try
             {
-                viti = Int32.Parse(vitiField.Text);
-                cmimi = Double.Parse(cmimiField.Text);
-                muaji = Int32.Parse(muajiField.Text);
-                if (muaji < 1 || muaji > 12) {
+                int vitiValid = Int32.Parse(viti);
+                int muajiValid = Int32.Parse(muaji);
+                double cmimiValid = Double.Parse(cmimi);
+                if (vitiValid > 2021 || vitiValid < 2010) {
+                    throw new Exception();
+                }
+                if (muajiValid > 12 || muajiValid < 1) {
                     throw new Exception();
                 }
             }
             catch (Exception ex) {
-                MessageBox.Show("Ju lutem plotesoni te dhenat ne menyren e duhur");
+                valid = false;
             }
-            String mesazhi = "fatura?" + lloji + "?" + viti + "?" + muaji + "?" + cmimi;
-            c1.ClientSend(mesazhi);
-            string pergjigja = c1.DekriptoPergjigjen();
-            if (pergjigja.Equals("OK")) {
-                Hide();
-                Form3 billsForm = new Form3();
-                billsForm.ShowDialog();
-                billsForm.Dispose();
-                Show();
-            }
+            
+            return valid;
         }
 
 

@@ -38,7 +38,7 @@ namespace Detyra
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(203, 48);
+            this.label2.Location = new System.Drawing.Point(155, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(154, 29);
             this.label2.TabIndex = 1;
@@ -46,7 +46,7 @@ namespace Detyra
             // 
             // addBillsBtn
             // 
-            this.addBillsBtn.Location = new System.Drawing.Point(228, 387);
+            this.addBillsBtn.Location = new System.Drawing.Point(159, 375);
             this.addBillsBtn.Name = "addBillsBtn";
             this.addBillsBtn.Size = new System.Drawing.Size(129, 23);
             this.addBillsBtn.TabIndex = 3;
@@ -59,14 +59,14 @@ namespace Detyra
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(-3, 152);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(583, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(465, 150);
             this.dataGridView1.TabIndex = 4;
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 443);
+            this.ClientSize = new System.Drawing.Size(449, 443);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.addBillsBtn);
             this.Controls.Add(this.label2);
