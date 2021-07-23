@@ -120,5 +120,11 @@
   <ItemGroup>
     <Content Include=".gitignore" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Serveri\Serveri.csproj">
+      <Project>{02545c64-b6ab-4801-8445-c492d4820726}</Project>
+      <Name>Serveri</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

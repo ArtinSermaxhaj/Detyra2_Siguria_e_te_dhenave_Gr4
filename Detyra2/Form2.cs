@@ -52,7 +52,19 @@ namespace Detyra
             {
                 String mesazhi = "Regjistro?" + firstname + "?" + lastname + "?" + username + "?"+ mosha + "?" + password;
                 c1.ClientSend(mesazhi);
-                MessageBox.Show(c1.DekriptoPergjigjen());
+                string pergjigjja = c1.DekriptoPergjigjen();
+                if (pergjigjja == "OK")
+                {
+                    Hide();
+                    Form3 billsForm = new Form3();
+                    billsForm.ShowDialog();
+                    billsForm.Dispose();
+                    Show();
+                }
+                else
+                {
+                    MessageBox.Show("Te dhenat e formes jane te gabuara.");
+                }
             }
             else
             {
@@ -63,6 +75,7 @@ namespace Detyra
                 passwordField.Clear();
                 confirmPwField.Clear();
             }
+
         }
 
         private void label5_Click(object sender, EventArgs e)

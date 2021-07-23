@@ -49,12 +49,23 @@ namespace Detyra
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            
             string username = usernameField.Text;
             string password = passwordField.Text;
             String mesazhi = "Login?"+username+"?"+password;
             c1.ClientSend(mesazhi);
-            MessageBox.Show(c1.DekriptoPergjigjen());
+            string pergjigjja = c1.DekriptoPergjigjen();
+            if (pergjigjja == "OK")
+            {
+                Hide();
+                Form3 billsForm = new Form3();
+                billsForm.ShowDialog();
+                billsForm.Dispose();
+                Show();
+            }
+            else
+            {
+                MessageBox.Show("Kredencialet jane te gabuara.");
+            }
         }
 
     }
