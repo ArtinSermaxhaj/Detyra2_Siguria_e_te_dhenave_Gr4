@@ -48,8 +48,16 @@ namespace Detyra
             catch (Exception ex) {
                 MessageBox.Show("Ju lutem plotesoni te dhenat ne menyren e duhur");
             }
-            String mesazhi = "Fatura?" + lloji + "?" + viti + "?" + muaji + "?" + cmimi;
-            c1.ClientSend(mesazhi);     
+            String mesazhi = "fatura?" + lloji + "?" + viti + "?" + muaji + "?" + cmimi;
+            c1.ClientSend(mesazhi);
+            string pergjigja = c1.DekriptoPergjigjen();
+            if (pergjigja.Equals("OK")) {
+                Hide();
+                Form2 signupForm = new Form2();
+                signupForm.ShowDialog();
+                signupForm.Dispose();
+                Show();
+            }
         }
 
 

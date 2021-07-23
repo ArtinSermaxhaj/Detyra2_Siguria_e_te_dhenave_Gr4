@@ -53,12 +53,12 @@ namespace Detyra
                 String mesazhi = "Regjistro?" + firstname + "?" + lastname + "?" + username + "?"+ mosha + "?" + password;
                 c1.ClientSend(mesazhi);
                 string pergjigjja = c1.DekriptoPergjigjen();
-                if (pergjigjja == "OK")
+                if (pergjigjja.Equals("OK"))
                 {
                     Hide();
-                    Form3 billsForm = new Form3();
-                    billsForm.ShowDialog();
-                    billsForm.Dispose();
+                    Form1 loginForm = new Form1();
+                    loginForm.ShowDialog();
+                    loginForm.Dispose();
                     Show();
                 }
                 else

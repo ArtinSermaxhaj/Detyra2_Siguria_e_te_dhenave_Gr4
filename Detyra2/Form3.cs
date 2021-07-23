@@ -41,6 +41,9 @@ namespace Detyra
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            Client c1 = new Client();
+            string mesazhi = "merrfaturat";
+            c1.ClientSend(mesazhi);
             DataTable table = new DataTable();
             table.Columns.Add("Lloji", typeof(string));
             table.Columns.Add("Viti", typeof(int));
@@ -48,6 +51,31 @@ namespace Detyra
             table.Columns.Add("Cmimi", typeof(double));
             table.Rows.Add("Test", 1, 12, 13);
             dataGridView1.DataSource = table;
+            string pergjijga = c1.DekriptoPergjigjen();
+            List<Fatura> userFaturat = merrFaturat(pergjijga);
+            if (userFaturat.Count != 0) {
+                foreach (Fatura f in userFaturat) {
+                    table.Rows.Add(f.llojiFatures, f.viti, f.muaji, f.vleraEuro);
+                }
+            }
         }
+        private List<Fatura> merrFaturat(string response)
+        {
+            List<Fatura> userBills = new List<Fatura>();
+            string[] arr = response.Split('?');
+            for (int i = 0; i < arr.Length-1; i++)
+            {
+                string[] fatura = arr[i].Split('*');
+                string lloji = fatura[0];
+                int viti = Int32.Parse(fatura[1]);
+                int muaji = Int32.Parse(fatura[2]);
+                double cmimi = Double.Parse(fatura[3]);
+                Fatura f = new Fatura(lloji, viti, muaji, cmimi);
+                userBills.Add(f);
+            }
+            return userBills;
+        }
+
     }
+
 }

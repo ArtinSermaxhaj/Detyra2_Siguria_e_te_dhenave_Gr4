@@ -152,6 +152,19 @@ namespace Serveri
                     }else {
                         return "Error";
                     }
+                    break;
+
+                case "merrfaturat":
+                    string bill = "";
+                    foreach (Fatura f in SessionManager.user.faturat)
+                    {
+                        bill += f.llojiFatures + "*" + f.viti + "*" + f.muaji + "*" + f.vleraEuro+ "?";
+
+                    }
+                    return bill;
+                    break;
+                    
+
                 default: return "Error";
             }
         } 

@@ -54,7 +54,7 @@ namespace Detyra
             String mesazhi = "Login?"+username+"?"+password;
             c1.ClientSend(mesazhi);
             string pergjigjja = c1.DekriptoPergjigjen();
-            if (pergjigjja == "OK")
+            if (pergjigjja.Equals("OK")) 
             {
                 Hide();
                 Form3 billsForm = new Form3();
