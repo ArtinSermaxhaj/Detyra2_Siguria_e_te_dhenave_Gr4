@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Net;
+using System.Xml;
+using System.Security.Cryptography.Xml;
+
 namespace Serveri
 {
     public class Server
@@ -129,6 +132,7 @@ namespace Serveri
                             User user = new User(firstName, lastName, userName, mosha, hashedPassword, salt);
                             SessionManager.user = user;
                             DatabaseManipulation.addUser(user);
+                            createUserSignature(user);
                             return "OK";
                         }
                         else {
@@ -186,6 +190,45 @@ namespace Serveri
             byte[] buff = new byte[16];
             rng.GetBytes(buff);
             return Convert.ToBase64String(buff);
+        }
+        public void createUserSignature(User user)
+        {
+            	RSACryptoServiceProvider Rsa = new RSACryptoServiceProvider();
+                XmlDocument objXml = new XmlDocument();
+                if(!(File.Exists(user.username+".xml")))
+            {
+		        XmlTextWriter xmlTw = new XmlTextWriter(user.username+".xml", Encoding.UTF8);
+	            xmlTw.WriteStartElement("user");
+		        xmlTw.Close();
+		    }
+                objXml.Load(user.username+".xml");
+                XmlElement rootNode = objXml.DocumentElement;
+                XmlElement perdoruesiNode = objXml.CreateElement("Perdoruesi");
+                XmlElement usernameNode = objXml.CreateElement("Username");
+                XmlElement emriNode = objXml.CreateElement("Emri");
+                XmlElement mbiemriNode = objXml.CreateElement("Mbiemri");
+                usernameNode.InnerText = user.username;
+                emriNode.InnerText = user.firstName;
+                mbiemriNode.InnerText = user.lastName;
+                perdoruesiNode.AppendChild(usernameNode);
+                perdoruesiNode.AppendChild(emriNode);
+                perdoruesiNode.AppendChild(mbiemriNode);
+                rootNode.AppendChild(perdoruesiNode);
+                objXml.Save( user.username+".xml");
+                SignedXml objSignedXml = new SignedXml(objXml);
+                Reference referenca = new Reference();
+                referenca.Uri = "";
+                XmlDsigEnvelopedSignatureTransform xmlDsigEnvelopedSignatureTransform = new XmlDsigEnvelopedSignatureTransform();
+                referenca.AddTransform(xmlDsigEnvelopedSignatureTransform);
+                objSignedXml.AddReference(referenca);
+                KeyInfo ki = new KeyInfo();
+                ki.AddClause(new RSAKeyValue(Rsa));
+                objSignedXml.KeyInfo = ki;
+                objSignedXml.SigningKey = Rsa;
+                objSignedXml.ComputeSignature();
+                XmlElement signatureNode = objSignedXml.GetXml();
+                rootNode.AppendChild(signatureNode);
+                objXml.Save(user.username + "1.xml");
         }
 
     }
