@@ -24,9 +24,9 @@ namespace Detyra
         private void AnuloBtn_Click(object sender, EventArgs e)
         {
             Hide();
-            Form3 signupForm = new Form3();
-            signupForm.ShowDialog();
-            signupForm.Dispose();
+            Form3 billsForm = new Form3();
+            billsForm.ShowDialog();
+            billsForm.Dispose();
             Show();
         }
 
@@ -53,9 +53,9 @@ namespace Detyra
             string pergjigja = c1.DekriptoPergjigjen();
             if (pergjigja.Equals("OK")) {
                 Hide();
-                Form2 signupForm = new Form2();
-                signupForm.ShowDialog();
-                signupForm.Dispose();
+                Form3 billsForm = new Form3();
+                billsForm.ShowDialog();
+                billsForm.Dispose();
                 Show();
             }
         }

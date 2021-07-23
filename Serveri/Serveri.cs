@@ -156,12 +156,17 @@ namespace Serveri
 
                 case "merrfaturat":
                     string bill = "";
-                    foreach (Fatura f in SessionManager.user.faturat)
+                    SessionManager.user = DatabaseManipulation.getUserBills(SessionManager.user.username);
+                    if (SessionManager.user.faturat != null)
                     {
-                        bill += f.llojiFatures + "*" + f.viti + "*" + f.muaji + "*" + f.vleraEuro+ "?";
+                        foreach (Fatura f in SessionManager.user.faturat)
+                        {
+                            bill += f.llojiFatures + "*" + f.viti + "*" + f.muaji + "*" + f.vleraEuro + "?";
 
+                        }
                     }
-                    return bill;
+                        return bill;
+                    
                     break;
                     
 
